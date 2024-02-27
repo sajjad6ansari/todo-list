@@ -37,11 +37,19 @@ function addTodo(newTodo){
     storeProxy.todos=[...storeProxy.todos,newTodo];
 }
 
-function deleteTodo(newTodo){
-    storeProxy.todos.remove(newTodo);
-    storeProxy=[...storeProxy];
+function deleteTodo(id){
+    storeProxy.todos=storeProxy.todos.filter(todo => todo.id !== id);
 }
 
-export { addTodo };
-export { deleteTodo };
+function toggleCompleted(id,completed){
+    storeProxy.todos=storeProxy.todos.map(todo=>{
+        if(todo.id===id){
+            return {...todo,completed:completed}
+        }
+        else{
+            return {...todo}
+        }
+    })
+}
+export { addTodo, deleteTodo,toggleCompleted };
 export default storeProxy;
