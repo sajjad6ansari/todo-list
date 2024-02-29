@@ -2,13 +2,13 @@ const store={
     todos:[
         {
             id:"1",
-            title:"Do DSA",
-            completed:false,
+            title:"Pray",
+            completed:true,
         },
         {
             id:"2",
             title:"Read Book",
-            completed:true,
+            completed:false,
         },
         {
             id:"3",
@@ -27,6 +27,7 @@ const storeHandler={
         if(property=="todos"){
             window.dispatchEvent(new Event("todosChange"));
         }
+        localStorage.setItem("store",JSON.stringify(store))
         return true;
     }
 }
