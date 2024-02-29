@@ -14,7 +14,7 @@ window.addEventListener("todosChange",()=>{
 
 const storeFromLocalStorage=JSON.parse(localStorage.getItem("store"));
 if(storeFromLocalStorage?.todos.length>0){
-    store.todos=storeFromLocalStorage;
+    store.todos=storeFromLocalStorage.todos;
 }
 else{
     // initial render
